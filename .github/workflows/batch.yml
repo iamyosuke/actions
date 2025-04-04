@@ -26,10 +26,9 @@ jobs:
           
       - name: Run batch process
         run: |
-          curl -f -X POST https://youtube-blog-ai.vercel.app/api/batch/generate-articles -H "Content-Type: application/json" -d '{"apiKey": "${{ secrets.API_KEY }}", "limit": 5}'
-          curl -f -X POST https://youtube-blog-ai.vercel.app/api/batch/generate-articles -H "Content-Type: application/json" -d '{"apiKey": "${{ secrets.API_KEY }}", "limit": 5}'
-          curl -f -X POST https://youtube-blog-ai.vercel.app/api/batch/generate-articles -H "Content-Type: application/json" -d '{"apiKey": "${{ secrets.API_KEY }}", "limit": 5}'
-          curl -f -X POST https://youtube-blog-ai.vercel.app/api/batch/generate-articles -H "Content-Type: application/json" -d '{"apiKey": "${{ secrets.API_KEY }}", "limit": 5}'
+          for i in {1..4}; do
+            curl -f -X POST https://youtube-blog-ai.vercel.app/api/batch/generate-articles -H "Content-Type: application/json" -d '{"apiKey": "${{ secrets.API_KEY }}", "limit": 5}'
+          done
         env:
           API_KEY: ${{ secrets.API_KEY }}
           
