@@ -2,7 +2,7 @@ name: Run Batch Process Every 1 Minute (Main Branch)
 
 on:
   schedule:
-    - cron: '*/1 * * * *'
+    - cron: '*/5 * * * *'
   workflow_dispatch:
   push:
 
