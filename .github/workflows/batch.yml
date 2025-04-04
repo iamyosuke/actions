@@ -1,8 +1,8 @@
-name: Run Batch Process Every 1 Minute (Main Branch)
+name: Run Batch Process Every 10 Minute (Main Branch)
 
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
   push:
 
@@ -26,8 +26,9 @@ jobs:
           
       - name: Run batch process
         run: |
-          for i in {1}; do
+          for i in {1..10}; do
             curl -f -X POST https://youtube-blog-ai.vercel.app/api/batch/generate-articles -H "Content-Type: application/json" -d '{"apiKey": "${{ secrets.API_KEY }}", "limit": 3}'
+            sleep 30
           done
         env:
           API_KEY: ${{ secrets.API_KEY }}
