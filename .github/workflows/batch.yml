@@ -1,4 +1,4 @@
-name: Run Batch Process Every 10 Minutes
+name: Run Batch Process Every 1 Minute
 
 on:
   schedule:
